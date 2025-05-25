@@ -1,0 +1,26 @@
+<suite name="CrossBrowser">
+	<listeners>
+		<listener
+			class-name="com.sevenmartsupermarket.listeners.ExtentReporter">
+		</listener>
+	</listeners>
+	<test name="RunninginChrome">
+	<parameter name="Browser" value="chrome"></parameter>
+		<classes>
+			<class name="com.sevenmartsupermarket.tests.HomeTest">
+			</class>
+		</classes>
+	</test>
+	<test name="RunninginFirefox">
+	<parameter name="Browser" value="edge"></parameter>
+		<classes>
+			<class name="com.sevenmartsupermarket.tests.HomeTest"></class>
+		</classes>
+	</test>
+	<test name="RunninginEdge">
+	<parameter name="Browser" value="firefox"></parameter>
+		<classes>
+			<class name="com.sevenmartsupermarket.tests.HomeTest"></class>
+		</classes>
+	</test>
+</suite>
