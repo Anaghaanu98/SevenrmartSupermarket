@@ -4,10 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenmartsupermarket.base.Base;
+import com.sevenmartsupermarket.dataprovider.DataProviders;
 import com.sevenmartsupermarket.pages.HomePage;
 import com.sevenmartsupermarket.pages.LoginPage;
 import com.sevenmartsupermarket.utilities.CaptureScreenshots;
 import com.sevenmartsupermarket.utilities.ExcelReader;
+import com.sevenmartsupermarket.utilities.GeneralUtility;
+
+
 
 public class LoginTest extends Base {
 	
@@ -18,20 +22,20 @@ public class LoginTest extends Base {
 	public void verifyValidLogin()
 	{
 		loginpage= new LoginPage(driver);
-		loginpage.login();
-		homepage = new HomePage(driver);
+		homepage= loginpage.login();		
 		String actualProfileName = homepage.getProfileName();
 		String expectedProfileName = "Admin";
 		Assert.assertEquals(actualProfileName, expectedProfileName);
 
 }
-	@Test(groups ="smoke")
-	public void dummyTestCase()
+	@Test(dataProvider="Login Credentials",dataProviderClass=DataProviders.class)
+	public void VerifyInvalidLogin(String username, String password)
 	{
-		excelreader.setExcelFile("AdminUserTestdata");
-		String data =excelreader.getCellData(1, 1);
-		System.out.println(data);
-		Assert.assertTrue(false);
+		loginpage= new LoginPage(driver);
+		//loginpage.InvalidLogin(username,password,"The password field is required.");
+		Assert.assertTrue(loginpage.InvalidLogin(username, password, "Invalid Username/Password"));
 	}
+	
+	
 	
 }

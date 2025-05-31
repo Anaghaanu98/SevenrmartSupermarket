@@ -18,7 +18,7 @@ public class AdminUserPage {
 
 	WebDriver driver;
 	Properties properties = new Properties();
-	
+	ExcelReader excelreader = new ExcelReader();
 	PageUtility pageutility;
 	@FindBy(xpath = ("//a[@class='btn btn-rounded btn-danger']"))
 	WebElement newButton;
@@ -30,11 +30,14 @@ public class AdminUserPage {
 	WebElement usertype;
 	@FindBy(xpath=("//button[@name='Create']"))
 	WebElement save;
+	@FindBy(xpath="//div//tr[1]//td[5]//a[@class='btn btn-sm btn btn-danger btncss']")
+	WebElement deleteButton;
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
+	WebElement alertMessage;
 
 	public AdminUserPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-
 		try {
 			FileInputStream ip = new FileInputStream(Constants.CONFIG_FILE_PATH);
 			properties.load(ip);
@@ -42,23 +45,23 @@ public class AdminUserPage {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
-
 	public void clickOnNewButton() {
 		newButton.click();
 	}
-
-	public void createAddNewUser(String username1 , String password1) 
+	public boolean createAddNewUser(String user, String pass, String text) 
 	{
-	
-		username.sendKeys(username1);
-		password.sendKeys(password1);
+		username.sendKeys(user);
+		password.sendKeys(pass);
 		pageutility = new PageUtility(driver);
 		pageutility.selectByVisisbleText(usertype, "Staff");
 		save.click();
+		return(alertMessage.getText().contains(text));
 		
-
 	}
-
+	public boolean deleteAlert()
+	{
+		deleteButton.click();
+		return (driver.switchTo().alert().getText().contains("Do you want to delete this User?"));
+	}
 }

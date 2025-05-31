@@ -21,6 +21,8 @@ public class LoginPage {
 	WebElement passwordField;
 	@FindBy(xpath=("//button[@class='btn btn-dark btn-block']"))
 	WebElement signInButton;
+	@FindBy(xpath=("//div[@class='alert alert-danger alert-dismissible']"))
+	WebElement alertMessage;
 	
 	public LoginPage(WebDriver driver)
 	{
@@ -51,19 +53,30 @@ public class LoginPage {
 		signInButton.click();
 	}
 	
-	public void login(String username, String password)
+	public HomePage login(String username, String password)
 	{
 		enterUserName(username); 
 		enterPassword(password);
 		clickOnSignInButton();
+		return new HomePage(driver);
+		
 	}
-	public void login()
+	public boolean InvalidLogin(String username, String password,String text)
+	{
+		enterUserName(username); 
+		enterPassword(password);
+		clickOnSignInButton();
+		return(alertMessage.getText().contains(text));
+		
+	}
+	public HomePage login()
 	{
 		String username =properties.getProperty("username");
 		String password =properties.getProperty("password");
 		enterUserName(username); 
 		enterPassword(password);
 		clickOnSignInButton();
+		return new HomePage(driver);
 	}
 	
 

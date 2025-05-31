@@ -22,11 +22,15 @@ public class WaitUtility {
 		wait=new WebDriverWait(driver,Duration.ofSeconds(time)); 
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
-	public void visibilityOfElement(WebElement element, long time)
+	public void visibilityOfElement(By element, long time)
 	{
 		wait=new WebDriverWait(driver,Duration.ofSeconds(time)); 
-		wait.until(ExpectedConditions.visibilityOfElementLocated((By) element));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(element));
 	}
-	
+	public void visibilityOfElement(String xpath, long time)
+	{
+		wait=new WebDriverWait(driver,Duration.ofSeconds(time)); 
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+	}
 
 }

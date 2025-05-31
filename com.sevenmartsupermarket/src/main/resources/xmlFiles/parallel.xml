@@ -15,4 +15,10 @@
 			<class name="com.sevenmartsupermarket.tests.HomeTest"></class>
 		</classes>
 	</test>
+	<test name ="manageNewsTest">
+	<classes>
+	<class name="com.sevenmartsupermarket.tests.ManageNewsTest"></class>
+	</classes>
+	</test>
+	
 </suite>
