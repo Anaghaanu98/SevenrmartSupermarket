@@ -18,6 +18,7 @@ public class LoginTest extends Base {
 	LoginPage loginpage;
 	HomePage homepage ;
 	ExcelReader excelreader = new ExcelReader();
+	
 	@Test(groups="smoke")
 	public void verifyValidLogin()
 	{

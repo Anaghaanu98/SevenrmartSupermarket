@@ -9,22 +9,11 @@
       <class name="com.sevenmartsupermarket.tests.HomeTest">
         <methods>
           <include name="launchBrowser"/>
-          <include name="verifyAdminMoreInfoButton"/>
+          <include name="launchBrowser"/>
+          <include name="verifyRetryFailure"/>
           <include name="terminateSession"/>
         </methods>
       </class> <!-- com.sevenmartsupermarket.tests.HomeTest -->
     </classes>
   </test> <!-- regressionTest(failed) -->
-  <test thread-count="10" parallel="tests" name="LoginTestCase(failed)">
-    <classes>
-      <class name="com.sevenmartsupermarket.tests.LoginTest">
-        <methods>
-          <include name="verifyValidLogin"/>
-          <include name="launchBrowser"/>
-          <include name="dummyTestCase"/>
-          <include name="terminateSession"/>
-        </methods>
-      </class> <!-- com.sevenmartsupermarket.tests.LoginTest -->
-    </classes>
-  </test> <!-- LoginTestCase(failed) -->
 </suite> <!-- Failed suite [seleniumProject] -->

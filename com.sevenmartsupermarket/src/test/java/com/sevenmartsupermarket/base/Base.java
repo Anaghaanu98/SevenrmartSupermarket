@@ -70,7 +70,7 @@ public class Base {
 		initialize(browser, url);
 	}
 
-	@AfterMethod(alwaysRun =true) 
+	@AfterMethod 
 	public void terminateSession(ITestResult itestresult)
 	{
 		if (itestresult.getStatus() == ITestResult.FAILURE) {

@@ -18,7 +18,7 @@ public class AdminUserPage {
 
 	WebDriver driver;
 	Properties properties = new Properties();
-	ExcelReader excelreader = new ExcelReader();
+	
 	PageUtility pageutility;
 	@FindBy(xpath = ("//a[@class='btn btn-rounded btn-danger']"))
 	WebElement newButton;
