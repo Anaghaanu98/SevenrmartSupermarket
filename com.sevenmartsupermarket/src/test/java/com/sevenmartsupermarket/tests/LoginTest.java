@@ -20,7 +20,7 @@ public class LoginTest extends Base {
 	ExcelReader excelreader = new ExcelReader();
 	
 	@Test(groups="smoke")
-	public void verifyValidLogin()
+	public void verifyValidUserCredentials()
 	{
 		loginpage= new LoginPage(driver);
 		homepage= loginpage.login();		
@@ -30,10 +30,10 @@ public class LoginTest extends Base {
 
 }
 	@Test(dataProvider="Login Credentials",dataProviderClass=DataProviders.class)
-	public void VerifyInvalidLogin(String username, String password)
+	public void VerifyInvalidUserCredentials(String username, String password)
 	{
 		loginpage= new LoginPage(driver);
-		//loginpage.InvalidLogin(username,password,"The password field is required.");
+		
 		Assert.assertTrue(loginpage.InvalidLogin(username, password, "Invalid Username/Password"));
 	}
 	

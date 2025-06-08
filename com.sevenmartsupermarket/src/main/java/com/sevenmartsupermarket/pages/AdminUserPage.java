@@ -38,13 +38,7 @@ public class AdminUserPage {
 	public AdminUserPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-		try {
-			FileInputStream ip = new FileInputStream(Constants.CONFIG_FILE_PATH);
-			properties.load(ip);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 	}
 	public void clickOnNewButton() {
 		newButton.click();

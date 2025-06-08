@@ -15,7 +15,8 @@ public class ManageProductPage {
 	WebElement newButton;
 	@FindBy(xpath="//a[contains(@href,'Product/edit?edit=436&page_ad=1&un=&ct=&sb=&Search=sr')]")
 	WebElement productEditButton;
-	
+	@FindBy(xpath="//h1[@class='m-0 text-dark']")
+	WebElement header;
 	public ManageProductPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -32,5 +33,10 @@ public class ManageProductPage {
 		pageutility.scrollAndClick(productEditButton);
 		return new EditProductPage(driver);
 	}
+	public String headerText()
+	{
+		return(header.getText());
+	}
+	
 
 }

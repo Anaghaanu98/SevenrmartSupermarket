@@ -18,14 +18,15 @@ public class EditProductTest extends Base {
 	ManageProductPage manageproductpage;
 	EditProductPage editproductpage;
 	@Test
-	public void verifyEditMainImage()
+	public void verifyAbletoEditMainImage()
 	{
 		loginpage = new LoginPage(driver);
 		homepage = loginpage.login();
 		manageproductpage = homepage.clickOnManageProductMoreInfo();
 		editproductpage = manageproductpage.clickOnPepsodentProductEditButton();
 		editproductpage.editMainImage();
-		Assert.assertTrue(true);
+		boolean actualResult= editproductpage.ImageIsDisplayed();
+		Assert.assertTrue(actualResult);
 	}
 
 }

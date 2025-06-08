@@ -14,26 +14,26 @@ public class ManageProductTest extends Base{
 	HomePage homepage;
 	ManageProductPage manageproductpage;
 	@Test
-	public void verifyClickNewButton()
+	public void verifyNavigationToNewButton()
 	{
 		loginpage = new LoginPage(driver);
 		homepage=loginpage.login();
 		manageproductpage= homepage.clickOnManageProductMoreInfo();		
 		manageproductpage.clickOnNewButton();
-		String actualResult = driver.getTitle();
+		String actualResult =manageproductpage.headerText();
 		System.out.println(actualResult);
-		String expectedResult = "Add Product | 7rmart supermarket";
+		String expectedResult = "Add Product";
 		Assert.assertEquals(actualResult, expectedResult);
 	}
 	@Test
-	public void verifyPepsodentProductEditButton()
+	public void verifyNavigationToPepsodentProductEditButton()
 	{
 		loginpage = new LoginPage(driver);
 		homepage=loginpage.login();
 		manageproductpage= homepage.clickOnManageProductMoreInfo();
 		manageproductpage.clickOnPepsodentProductEditButton();
-		String actualResult = driver.getTitle();
-		String expectedResult = "Edit Product | 7rmart supermarket";
+		String actualResult = manageproductpage.headerText();
+		String expectedResult = "Edit Product";
 		Assert.assertEquals(actualResult, expectedResult);
 	}
 

@@ -27,7 +27,7 @@ public class HomeTest extends Base {
 		Assert.assertEquals(actualResult, expectedResult);
 	}
 	@Test
-	public void verifyManageNewsMoreInfo()
+	public void verifyNavigationToManageNewsMoreInfo()
 	{
 		loginpage= new LoginPage(driver);
 		loginpage.login();

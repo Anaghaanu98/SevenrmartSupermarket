@@ -8,4 +8,5 @@ public class Constants {
 	public static final String EXCEL_FILE_PATH = System.getProperty("user.dir")+"//src//main//resources//testdata//testdataExcel.xlsx";
     public static final String SCREENSHOTS_FILE_PATH =System.getProperty("user.dir")+"//screenshots//";
     public static final String EXTENT_REPORTS_FILE_PATH =System.getProperty("user.dir")+"//extentreports//";
+    public static final String IMAGE_PATH =System.getProperty("user.dir")+"//src//main//resources//testdata//pepsodent.jpg";
 }

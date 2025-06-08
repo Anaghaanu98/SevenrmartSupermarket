@@ -17,7 +17,7 @@ public class ManageNewsTest extends Base {
 	ManageNewsPage managenewspage;
 
 	@Test(dataProvider = "Manage News", dataProviderClass = DataProviders.class)
-	public void verifyAddNews(String data) {
+	public void verifyAbleToAddNews(String data) {
 		loginpage = new LoginPage(driver);
 		homepage = loginpage.login();
 		homepage.clickOnManageNewsMoreInfo();

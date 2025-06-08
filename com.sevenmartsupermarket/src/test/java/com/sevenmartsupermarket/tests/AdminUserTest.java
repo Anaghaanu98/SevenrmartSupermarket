@@ -26,7 +26,7 @@ public class AdminUserTest extends Base {
 	HomePage homepage;
 	ExcelReader excelreader = new ExcelReader();	
 	@Test(groups={"regression","smoke"})
-	public void verifyCreatingNewUser()
+	public void verifyAbleToCreateNewUser()
 	{
 		loginpage = new LoginPage(driver);
 		homepage =loginpage.login();		
@@ -38,7 +38,7 @@ public class AdminUserTest extends Base {
 		Assert.assertTrue(adminuserpage.createAddNewUser(GeneralUtility.getRandomName(),pass,"User Created Successfully"));							
 	}
 	@Test
-	public void verifyDeletionAlertText()
+	public void getDeletionAlertText()
 	{
 		loginpage = new LoginPage(driver);
 		homepage =loginpage.login();		
